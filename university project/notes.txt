@@ -1,0 +1,8 @@
+make list,watch-anime,about-us,contact etc web pages
+add animations to images (hover over)
+make images clickable and land them on another page where the can watch them
+::list.html
+    add anime names 
+    add anime chracter
+    add anime weapons
+    

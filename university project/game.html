@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Guess Game</title>
+    <link rel="stylesheet" href="stylesheet.css">
+	<script>
+		var answer;
+		function startGame() {
+			answer = Math.floor(Math.random() * 10) + 1;
+			document.getElementById("start").style.display = "none";
+			document.getElementById("game").style.display = "block";
+		}
+		function checkGuess() {
+			var guess = document.getElementById("guess").value;
+
+			if (guess == answer) {
+				document.getElementById("result").innerHTML = "Congratulations! You guessed the number.";
+			} else if(guess > 10){
+                document.getElementById("result").innerHTML = "Congratulations! You are officially retarded";
+            }
+            else {
+				document.getElementById("result").innerHTML = "the answer is "+answer+". You fucking idiot";
+			}
+		}
+	</script>
+</head>
+<body>
+    <header>
+        <div class="bg-img">
+            <div class="home-button">
+                <div class="al-lt">
+                    <a href="index.html"><button type="button">home</button></a>
+                    <a href="list.html"><button type="button">anime lists</button></a>
+                    <a href="https://zoro.to/home"><button type="button">watch anime</button></a>
+                    <a href="game.html"><button type="button">guess game</button></a>
+                </div>
+                <div class="al-rt">
+                    <a href="about.html" class="bt-us"><button type="button">about us</button></a>
+                    <a href="mailto:anubhavbali2004@gmail.com"><button type="button">contact us</button></a>
+                </div>
+            </div>
+
+        </div>
+    </header>
+    <hr>
+	<div class="game">
+
+        <div id="start">
+            <h1>Guess Game</h1>
+            <p>Click the button to start the game.</p>
+            <button onclick="startGame()">Start</button>
+        </div>
+        <div id="game" style="display: none;">
+            <p>Guess a number between 1 and 10:</p>
+            <input type="text" id="guess">
+            <button onclick="checkGuess()">Submit</button>
+            <p id="result"></p>
+            <button onclick="location.reload()">Play Again</button>
+        </div>
+        <p style="display: none;">The correct answer was: <span id="answer"></span></p>
+        <script>
+            window.addEventListener('beforeunload', function() {
+                document.getElementById("answer").innerHTML = answer;
+            });
+            </script>
+    </div>
+</body>
+</html>
